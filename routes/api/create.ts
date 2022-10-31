@@ -8,6 +8,9 @@ interface RequestData {
 type Links = Array<{ link: string; slug: string }>;
 
 export const handler = async (req: Request, _ctx: HandlerContext) => {
+  if (req.method !== "POST") {
+    return new Response("Method not allowed", { status: 405 });
+  }
   const accessToken = Deno.env.get('GITHUB_TOKEN');
   const gistId = Deno.env.get('GIST_ID');
   const verification = Deno.env.get('VERIFICATION');
