@@ -5,6 +5,9 @@ export default function Home() {
     <>
       <Head>
         <title>Melon</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&display=swap" />
         <link rel="stylesheet" href="/styles.css" />
       </Head>
       <main className="p-4 w-screen h-screen flex justify-center items-center dark:(bg-gray-900 text-white)">
