@@ -1,0 +1,21 @@
+* {
+  font-family: 'Manrope', ui-sans-serif, sans-serif;
+}
+
+#underline {
+  display: inline-block;
+  padding-bottom: 3px;
+  background-image: linear-gradient(#e54554 0 0);
+  background-position: bottom left;
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  transition:
+    background-size 0.3s cubic-bezier(0.55, 0, 1, 0.45),
+    background-position 0s 0.3s cubic-bezier(0.55, 0, 1, 0.45),
+    width 0.3s cubic-bezier(0.55, 0, 1, 0.45);
+}
+
+#underline:hover {
+  background-position: bottom right;
+  background-size: 100% 2px;
+}
