@@ -5,20 +5,11 @@ export default function Home() {
     <>
       <Head>
         <title>Melon</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&display=swap" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&display=swap" />
-        <link rel="stylesheet" href="/styles.css" />
-        <meta name="description" content="A fresh link shortener." />
-        <meta property="og:description" content="A fresh link shortener." />
-        <meta name="theme-color" content="#e54554" />
-        <meta property="og:image" content="/watermelon.png" />
-        <meta property="og:type" content="website" />
         <meta content="Landing Page" property="og:title" />
-        <meta property="og:site_name" content="Melon" />
+        <link rel="stylesheet" href="/styles/index.css" />
       </Head>
       <main className="p-4 w-screen h-screen flex justify-center items-center dark:(bg-gray-900 text-white)">
-        <div>
+        <div className="fadeIn">
           <div className="flex items-center">
             <img src="/watermelon.webp" alt="An oversimplified watermelon" className="w-12 h-12" />
             <h1 className="text-4xl ml-8">Melon</h1>
