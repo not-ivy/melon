@@ -9,6 +9,12 @@ export default function Home() {
         <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&display=swap" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&display=swap" />
         <link rel="stylesheet" href="/styles.css" />
+        <meta name="description" content="A fresh link shortener." />
+        <meta property="og:description" content="A fresh link shortener." />
+        <meta name="theme-color" content="#e54554" />
+        <meta property="og:image" content="/watermelon.webp" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Melon" />
       </Head>
       <main className="p-4 w-screen h-screen flex justify-center items-center dark:(bg-gray-900 text-white)">
         <div>
