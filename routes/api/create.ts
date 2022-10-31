@@ -10,12 +10,18 @@ type Links = Array<{ link: string; slug: string }>;
 export const handler = async (req: Request, _ctx: HandlerContext) => {
   const accessToken = Deno.env.get('GITHUB_TOKEN');
   const gistId = Deno.env.get('GIST_ID');
+  const verification = Deno.env.get('VERIFICATION');
   let domain = Deno.env.get('DOMAIN');
-  if (!accessToken || !gistId || !domain) {
+  if (!accessToken || !gistId || !domain || !verification) {
     return new Response("Enviromental variables are not setup.", { status: 500 });
   }
-  domain = domain.replace(/\/$/, '');
 
+  const authorization = req.headers.get('Authorization');
+  if (authorization !== verification) {
+    return new Response("Unauthorized", { status: 401 });
+  }
+
+  domain = domain.replace(/\/$/, '');
   try {
     const data = await req.json() as RequestData;
     let { link, slug } = data;
