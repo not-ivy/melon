@@ -19,7 +19,7 @@ export default function Home() {
       <main className="p-4 w-screen h-screen flex justify-center items-center dark:(bg-gray-900 text-white)">
         <div>
           <div className="flex items-center">
-            <img src="/watermelon.png" alt="An oversimplified watermelon" className="w-12 h-12" />
+            <img src="/watermelon.webp" alt="An oversimplified watermelon" className="w-12 h-12" />
             <h1 className="text-4xl ml-8">Melon</h1>
           </div>
           <hr className="my-2 w-2/4 border-none" />
