@@ -5,6 +5,8 @@ export default function RedirectIsland({ target }: { target: string }) {
   const [url, setUrl] = useState("");
 
   useEffect(() => {
+    if (!target) return;
+
     fetch('/api/lengthen', { method: 'POST', body: target })
       .then((res) => {
         if (res.status !== 200) { window.location.assign(`/${res.status}`); return; }
@@ -12,7 +14,7 @@ export default function RedirectIsland({ target }: { target: string }) {
       })
       .then((data) => setUrl(data!))
       .catch(() => window.location.assign('/500'))
-  }, [])
+  }, [target])
 
   useEffect(() => {
     if (!url) return;
