@@ -7,7 +7,7 @@ export default function App(props: AppProps) {
     <>
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&display=swap" />
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&display=swap" />
         <link rel="stylesheet" href="/styles/shared.css" />
         <meta name="description" content="A fresh link shortener." />

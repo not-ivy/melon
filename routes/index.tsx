@@ -17,7 +17,7 @@ export default function Home() {
           <hr className="my-2 w-2/4 border-none" />
           <a className="mx-auto cursor-pointer select-none group" id="underline" href="/shorten">
             <span className="text-3xl font-light">A <span className="text-red-400">sweet</span> link shortener.</span>
-            <sup className="transition(colors transform) inline-block duration-300 text-gray-600 group-hover:(text-white translate-x-3)" aria-label="Shorten a link">
+            <sup className="transition(colors transform) inline-block duration-300 text-gray-600 group-hover:(text-white translate-x-3) ml-1" aria-label="Shorten a link">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-7 h-6">
                 <path fillRule="evenodd" d="M16.72 7.72a.75.75 0 011.06 0l3.75 3.75a.75.75 0 010 1.06l-3.75 3.75a.75.75 0 11-1.06-1.06l2.47-2.47H3a.75.75 0 010-1.5h16.19l-2.47-2.47a.75.75 0 010-1.06z" clipRule="evenodd" />
               </svg>

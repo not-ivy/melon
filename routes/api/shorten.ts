@@ -40,7 +40,7 @@ export const handler = async (req: Request, _ctx: HandlerContext) => {
 
         const existingLink = gistContent.find((item) => item.link === link);
         if (existingLink) {
-          return new Response(`Link already exist\n${JSON.stringify(existingLink, null, 2)}`, { status: 400 });
+          return new Response(`Link already shortened: ${domain}/${existingLink.slug}`, { status: 400 });
         }
 
         slug = slug || Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5);
