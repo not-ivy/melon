@@ -10,9 +10,13 @@ export default function RedirectIsland({ target }: { target: string }) {
     fetch('/api/lengthen', { method: 'POST', body: target })
       .then((res) => {
         if (res.status !== 200) { window.location.assign(`/${res.status}`); return; }
+        console.log(res.status);
         return res.text();
       })
-      .then((data) => setUrl(data!))
+      .then((data) => {
+        console.log(data);
+        setUrl(data!)
+      })
       .catch(() => window.location.assign('/500'))
   }, [target])
 
