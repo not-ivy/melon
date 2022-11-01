@@ -16,13 +16,18 @@ export const handler = async (req: Request, _ctx: HandlerContext) => {
     return new Response("Enviromental variables are not setup.", { status: 500 });
   }
   domain = domain.replace(/\/$/, '');
-  const authorization = req.headers.get('Authorization');
-  if (authorization !== verification) {
-    return new Response("Unauthorized", { status: 401 });
-  }
 
-  const data = await req.json() as RequestData;
-  let { link, slug } = data;
+  const data = await req.formData();
+  const token = data.get('token') as string;
+  if (token !== verification) {
+    return new Response("Invalid token", { status: 401 });
+  }
+  let link = data.get('link') as string;
+  if (!link) {
+    return new Response("No link provided", { status: 400 })
+  }
+  link = link.toString();
+  let slug = data.get('slug') as string;
 
   const gistData = await (await fetch(`https://api.github.com/gists/${gistId}`, { headers: { Authorization: `token ${accessToken}` } })).json();
   const gistContent = JSON.parse(gistData.files['links.json'].content) as Links;
@@ -34,7 +39,7 @@ export const handler = async (req: Request, _ctx: HandlerContext) => {
           return new Response("Missing link", { status: 400 });
         }
 
-        if (slug && gistContent.find((item) => item.slug === slug)) {
+        if (slug.length && gistContent.find((item) => item.slug === slug)) {
           return new Response("Slug is already taken", { status: 400 });
         }
 
@@ -43,7 +48,7 @@ export const handler = async (req: Request, _ctx: HandlerContext) => {
           return new Response(`Link already shortened: ${domain}/${existingLink.slug}`, { status: 400 });
         }
 
-        slug = slug || Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5);
+        slug = slug.length ? slug : Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5);
         gistContent.push({ slug, link });
         await updateGist(accessToken, gistId, gistContent);
 

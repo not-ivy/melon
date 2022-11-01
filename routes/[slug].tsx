@@ -42,7 +42,7 @@ export default function Redirect({ data }: PageProps<Data | null>) {
     <>
       <Head>
         <title>Redirecting</title>
-        <meta content="404 | Not Found" property="og:title" />
+        <meta content="Redirecting..." property="og:title" />
       </Head>
       <main className="p-4 w-screen h-screen flex justify-center items-center dark:(bg-gray-900 text-white)">
         <RedirectIsland target={data.link} />

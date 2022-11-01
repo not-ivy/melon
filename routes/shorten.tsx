@@ -1,35 +1,7 @@
 import { Head } from "$fresh/runtime.ts";
 import Input from "../components/Input.tsx";
-import { Handlers, PageProps } from "$fresh/server.ts";
-import Status from "../components/Status.tsx";
 
-interface Data {
-  url?: string;
-  error?: string;
-}
-
-export const handler: Handlers<Data | null> = {
-  async GET(req, ctx) {
-    const params = new URL(req.url).searchParams;
-    if (!params.has('link')) return ctx.render(null);
-
-    const url = await fetch(`${Deno.env.get('DOMAIN')}/api/shorten`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': params.get('token') || '',
-      },
-      body: JSON.stringify({
-        link: params.get('link'),
-        slug: params.get('slug'),
-      }),
-    });
-    if (url.status !== 200) return ctx.render({ error: await url.text() });
-    return ctx.render({ url: await url.text() });
-  },
-};
-
-export default function Shorten({ data }: PageProps<Data | null>) {
+export default function Shorten() {
   return (
     <>
       <Head>
@@ -38,9 +10,7 @@ export default function Shorten({ data }: PageProps<Data | null>) {
         <link rel="stylesheet" href="/styles/shorten.css" />
       </Head>
       <main className="p-4 w-screen h-screen flex flex-col justify-center items-center dark:(bg-gray-900 text-white)">
-        <Status hidden={data === null || data.error === undefined} message={data?.error ?? ''} fail={true} />
-        <Status hidden={data === null || data.url === undefined} message={data?.url ?? ''} fail={false} />
-        <form className="fadeIn flex flex-col items-end max-w-screen-sm w-full gap-y-6 dark:text-white text-black">
+        <form className="fadeIn flex flex-col items-end max-w-screen-sm w-full gap-y-6 dark:text-white text-black" action="/api/shorten" method="POST">
           <div className="flex flex-col gap-y-6 w-full">
             <Input label="Link to shorten" name="link" type="url" required placeholder="https://github.com" />
             <Input label="Slug" name="slug" />
