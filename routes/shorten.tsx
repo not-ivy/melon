@@ -10,7 +10,7 @@ export default function Shorten() {
         <link rel="stylesheet" href="/styles/shorten.css" />
       </Head>
       <main className="p-4 w-screen h-screen flex flex-col justify-center items-center dark:(bg-gray-900 text-white)">
-        <form className="fadeIn flex flex-col items-end max-w-screen-sm w-full gap-y-6 dark:text-white text-black" action="/api/shorten" method="POST">
+        <form id="fadeIn" className="flex flex-col items-end max-w-screen-sm w-full gap-y-6 dark:text-white text-black" action="/api/shorten" method="POST">
           <div className="flex flex-col gap-y-6 w-full">
             <Input label="Link to shorten" name="link" type="url" required placeholder="https://github.com" />
             <Input label="Slug" name="slug" />
