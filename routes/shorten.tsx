@@ -8,7 +8,7 @@ interface Data {
   error?: string;
 }
 
-export const handler: Handlers<Data> = {
+export const handler: Handlers<Data | null> = {
   async GET(req, ctx) {
     const params = new URL(req.url).searchParams;
     if (!params.has('link')) return ctx.render(null);
