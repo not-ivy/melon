@@ -1,4 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
+import Blankslate from "../components/Blankslate.tsx";
 
 export default function RedirectIsland({ target }: { target: string }) {
   const [countdown, setCountdown] = useState(3);
@@ -26,16 +27,14 @@ export default function RedirectIsland({ target }: { target: string }) {
   }, [countdown]);
 
   if (!url) return (
-    <div className="flex items-center" id="fadeIn">
-      <img src="/watermelon.webp" alt="An oversimplified watermelon" className="w-12 h-12" />
-      <h1 className="text-4xl ml-6 pl-6 border-l-2 dark:border-white font-light animate-pulse">Working...</h1>
-    </div>
+    <Blankslate>
+      <span className="animate-pulse">Working...</span>
+    </Blankslate>
   )
 
   return (
-    <div className="flex items-center" id="fadeIn">
-      <img src="/watermelon.webp" alt="An oversimplified watermelon" className="w-12 h-12" />
-      <h1 className="text-4xl ml-6 pl-6 border-l-2 dark:border-white font-light">Redirecting in <span className="font-medium">{countdown}</span> seconds...</h1>
-    </div>
+    <Blankslate>
+      Redirecting in <span className="font-medium">{countdown}</span> seconds...
+    </Blankslate>
   )
 }
