@@ -9,6 +9,7 @@ import * as $2 from "./routes/api/lengthen.ts";
 import * as $3 from "./routes/api/shorten.ts";
 import * as $4 from "./routes/index.tsx";
 import * as $5 from "./routes/shorten.tsx";
+import * as $$0 from "./islands/RedirectIsland.tsx";
 
 const manifest = {
   routes: {
@@ -19,7 +20,9 @@ const manifest = {
     "./routes/index.tsx": $4,
     "./routes/shorten.tsx": $5,
   },
-  islands: {},
+  islands: {
+    "./islands/RedirectIsland.tsx": $$0,
+  },
   baseUrl: import.meta.url,
   config,
 };

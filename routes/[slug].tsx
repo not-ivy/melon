@@ -1,7 +1,12 @@
 import { PageProps, Handlers } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
+import RedirectIsland from "../islands/RedirectIsland.tsx";
 
-export const handler: Handlers<string | null> = {
+interface Data {
+  link: string;
+}
+
+export const handler: Handlers<Data | null> = {
   async GET(_req, ctx) {
     const domain = Deno.env.get('DOMAIN')?.replace(/\/$/, '');
     if (!domain) {
@@ -13,11 +18,11 @@ export const handler: Handlers<string | null> = {
     const link = await resp.text();
     if (!link) return ctx.render(null);
 
-    return ctx.render(link);
+    return ctx.render({ link });
   },
 };
 
-export default function Redirect({ data }: PageProps<string | null>) {
+export default function Redirect({ data }: PageProps<Data | null>) {
   if (!data) return (
     <>
       <Head>
@@ -34,6 +39,14 @@ export default function Redirect({ data }: PageProps<string | null>) {
   )
 
   return (
-    <></>
+    <>
+      <Head>
+        <title>Redirecting</title>
+        <meta content="404 | Not Found" property="og:title" />
+      </Head>
+      <main className="p-4 w-screen h-screen flex justify-center items-center dark:(bg-gray-900 text-white)">
+        <RedirectIsland target={data.link} />
+      </main>
+    </>
   )
 }
