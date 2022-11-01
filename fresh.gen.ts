@@ -3,22 +3,26 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import config from "./deno.json" assert { type: "json" };
-import * as $0 from "./routes/[slug].tsx";
-import * as $1 from "./routes/_app.tsx";
-import * as $2 from "./routes/api/lengthen.ts";
-import * as $3 from "./routes/api/shorten.ts";
-import * as $4 from "./routes/index.tsx";
-import * as $5 from "./routes/shorten.tsx";
+import * as $0 from "./routes/404.tsx";
+import * as $1 from "./routes/500.tsx";
+import * as $2 from "./routes/[slug].tsx";
+import * as $3 from "./routes/_app.tsx";
+import * as $4 from "./routes/api/lengthen.ts";
+import * as $5 from "./routes/api/shorten.ts";
+import * as $6 from "./routes/index.tsx";
+import * as $7 from "./routes/shorten.tsx";
 import * as $$0 from "./islands/RedirectIsland.tsx";
 
 const manifest = {
   routes: {
-    "./routes/[slug].tsx": $0,
-    "./routes/_app.tsx": $1,
-    "./routes/api/lengthen.ts": $2,
-    "./routes/api/shorten.ts": $3,
-    "./routes/index.tsx": $4,
-    "./routes/shorten.tsx": $5,
+    "./routes/404.tsx": $0,
+    "./routes/500.tsx": $1,
+    "./routes/[slug].tsx": $2,
+    "./routes/_app.tsx": $3,
+    "./routes/api/lengthen.ts": $4,
+    "./routes/api/shorten.ts": $5,
+    "./routes/index.tsx": $6,
+    "./routes/shorten.tsx": $7,
   },
   islands: {
     "./islands/RedirectIsland.tsx": $$0,
