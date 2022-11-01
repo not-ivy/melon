@@ -6,8 +6,8 @@ export default function RedirectIsland({ target }: { target: string }) {
 
   useEffect(() => {
     fetch(`/api/redirect/${target}`)
-      .then((res) => res.text())
-      .then((data) => { if (!data) return window.location.assign('/404'); setUrl(data); })
+      .then((res) => { if (res.status === 404) { window.location.assign('/404'); return; } return res.text(); })
+      .then((data) => setUrl(data!))
       .catch(() => window.location.assign('/500'))
   }, [])
 
