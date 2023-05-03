@@ -7,10 +7,9 @@ import * as $0 from "./routes/404.tsx";
 import * as $1 from "./routes/500.tsx";
 import * as $2 from "./routes/[slug].tsx";
 import * as $3 from "./routes/_app.tsx";
-import * as $4 from "./routes/api/lengthen.ts";
-import * as $5 from "./routes/api/shorten.ts";
-import * as $6 from "./routes/index.tsx";
-import * as $7 from "./routes/shorten.tsx";
+import * as $4 from "./routes/api/shorten.ts";
+import * as $5 from "./routes/index.tsx";
+import * as $6 from "./routes/shorten.tsx";
 import * as $$0 from "./islands/RedirectIsland.tsx";
 
 const manifest = {
@@ -19,10 +18,9 @@ const manifest = {
     "./routes/500.tsx": $1,
     "./routes/[slug].tsx": $2,
     "./routes/_app.tsx": $3,
-    "./routes/api/lengthen.ts": $4,
-    "./routes/api/shorten.ts": $5,
-    "./routes/index.tsx": $6,
-    "./routes/shorten.tsx": $7,
+    "./routes/api/shorten.ts": $4,
+    "./routes/index.tsx": $5,
+    "./routes/shorten.tsx": $6,
   },
   islands: {
     "./islands/RedirectIsland.tsx": $$0,
