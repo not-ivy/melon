@@ -11,7 +11,7 @@ export const handler: Handlers<string | null> = {
       return new Response(null, {
         status: 302,
         headers: {
-          Location: '/404',
+          Location: `${Deno.env.get('DOMAIN')}/404`,
         },
       });
     }
